@@ -6,6 +6,8 @@ RUN buildDeps='software-properties-common git libtool cmake python-dev python3-p
     add-apt-repository ppa:ubuntu-toolchain-r/test && apt-get update && apt-get install -y gcc-9 g++-9 && \
     rm /usr/bin/gcc /usr/bin/g++ && ln -s /usr/bin/gcc-9 /usr/bin/gcc && ln -s /usr/bin/g++-9 /usr/bin/g++ && \
     add-apt-repository ppa:openjdk-r/ppa && add-apt-repository ppa:longsleep/golang-backports && apt-get update && apt-get install -y golang-go openjdk-8-jdk && \
+    wget -O pypy3.7-v7.3.5-linux64.tar.bz2 https://downloads.python.org/pypy/pypy3.7-v7.3.5-linux64.tar.bz2 && tar -jxvf pypy3.7-v7.3.5-linux64.tar.bz2 && rm pypy3.7-v7.3.5-linux64.tar.bz2 && mv pypy3.7-v7.3.5-linux64 /usr/lib/pypy3.7 && ln -s /usr/lib/pypy3.7/bin/pypy3 /usr/bin/pypy3  && \
+    wget -O pypy2.7-v7.3.5-linux64.tar.bz2 https://downloads.python.org/pypy/pypy2.7-v7.3.5-linux64.tar.bz2 && tar -jxvf pypy2.7-v7.3.5-linux64.tar.bz2 && rm pypy2.7-v7.3.5-linux64.tar.bz2 && mv pypy2.7-v7.3.5-linux64 /usr/lib/pypy2.7 && ln -s /usr/lib/pypy2.7/bin/pypy /usr/bin/pypy  && \
     pip3 install -I --no-cache-dir psutil gunicorn flask requests idna && \
     cd /tmp && git clone -b newnew  --depth 1 https://github.com/Harry-zklcdc/Judger.git && cd Judger && \
     mkdir build && cd build && cmake .. && make && make install && cd ../bindings/Python && python3 setup.py install && \
