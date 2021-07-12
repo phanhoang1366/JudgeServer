@@ -103,14 +103,6 @@ py3_lang_config = {
 }
 
 pypy2_lang_config = {
-    "template": """//PREPEND BEGIN
-//PREPEND END
-
-//TEMPLATE BEGIN
-//TEMPLATE END
-
-//APPEND BEGIN
-//APPEND END""",
     "run": {
         "exe_name": "solution.py",
         "command": "/usr/bin/pypy {exe_path}",
@@ -121,14 +113,6 @@ pypy2_lang_config = {
 }
 
 pypy3_lang_config = {
-    "template": """//PREPEND BEGIN
-//PREPEND END
-
-//TEMPLATE BEGIN
-//TEMPLATE END
-
-//APPEND BEGIN
-//APPEND END""",
     "run": {
         "exe_name": "solution.py",
         "command": "/usr/bin/pypy3 {exe_path}",
