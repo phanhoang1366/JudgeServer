@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 COPY build/java_policy /etc
-RUN export DEBIAN_FRONTEND=noninteractive
+RUN export DEBIAN_FRONTEND=noninteractive && \
     buildDeps='software-properties-common git libtool cmake python-dev python3-pip python-pip libseccomp-dev wget curl' && \
     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata && \
