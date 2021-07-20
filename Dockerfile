@@ -6,8 +6,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && apt-get install -y tzdata python python3 python-pkg-resources python3-pkg-resources $buildDeps && \
     add-apt-repository ppa:ubuntu-toolchain-r/test && apt-get update && apt-get install -y gcc-9 g++-9 && \
     rm /usr/bin/gcc /usr/bin/g++ && ln -s /usr/bin/gcc-9 /usr/bin/gcc && ln -s /usr/bin/g++-9 /usr/bin/g++ && \
-    add-apt-repository ppa:openjdk-r/ppa && add-apt-repository ppa:longsleep/golang-backports && add-apt-repository ppa:ondrej/php && \
+    add-apt-repository ppa:openjdk-r/ppa && add-apt-repository ppa:longsleep/golang-backports && \
     curl -fsSL https://deb.nodesource.com/setup_14.x | bash - && \
+    apt-get update && apt-get install -y golang-go openjdk-8-jdk nodejs && \
     ln -sf /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata && \
     pip3 install -I --no-cache-dir psutil gunicorn flask requests idna && \
