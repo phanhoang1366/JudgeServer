@@ -102,6 +102,46 @@ py3_lang_config = {
     }
 }
 
+pypy2_lang_config = {
+    "run": {
+        "exe_name": "solution.py",
+        "command": "/usr/bin/pypy {exe_path}",
+        "seccomp_rule": "",
+        "env": default_env,
+        "memory_limit_check_only": 1
+    }
+}
+
+pypy3_lang_config = {
+    "run": {
+        "exe_name": "solution.py",
+        "command": "/usr/bin/pypy3 {exe_path}",
+        "seccomp_rule": "",
+        "env": default_env + ["PYTHONIOENCODING=utf-8"],
+        "memory_limit_check_only": 1
+    }
+}
+
+php_lang_config = {
+    "run": {
+        "exe_name": "solution.php",
+        "command": "/usr/bin/php {exe_path}",
+        "seccomp_rule": "",
+        "env": default_env,
+        "memory_limit_check_only": 1
+    }
+}
+
+js_lang_config = {
+    "run": {
+        "exe_name": "solution.js",
+        "command": "/usr/bin/node {exe_path}",
+        "seccomp_rule": "",
+        "env": ["NO_COLOR=true"] + default_env,
+        "memory_limit_check_only": 1
+    }
+}
+
 go_lang_config = {
     "compile": {
         "src_name": "main.go",
