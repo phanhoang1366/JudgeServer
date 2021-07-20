@@ -102,26 +102,6 @@ py3_lang_config = {
     }
 }
 
-pypy2_lang_config = {
-    "run": {
-        "exe_name": "solution.py",
-        "command": "/usr/bin/pypy {exe_path}",
-        "seccomp_rule": "",
-        "env": default_env,
-        "memory_limit_check_only": 1
-    }
-}
-
-pypy3_lang_config = {
-    "run": {
-        "exe_name": "solution.py",
-        "command": "/usr/bin/pypy3 {exe_path}",
-        "seccomp_rule": "",
-        "env": default_env + ["PYTHONIOENCODING=utf-8"],
-        "memory_limit_check_only": 1
-    }
-}
-
 php_lang_config = {
     "run": {
         "exe_name": "solution.php",

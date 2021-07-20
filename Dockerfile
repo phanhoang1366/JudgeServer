@@ -9,8 +9,6 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     add-apt-repository ppa:openjdk-r/ppa && add-apt-repository ppa:longsleep/golang-backports && add-apt-repository ppa:ondrej/php && \
     curl -fsSL https://deb.nodesource.com/setup_14.x | bash - && \
     apt-get update && apt-get install -y golang-go openjdk-8-jdk php-cli nodejs && \
-    wget -O pypy3.7-v7.3.5-linux64.tar.bz2 https://downloads.python.org/pypy/pypy3.7-v7.3.5-linux64.tar.bz2 && tar -jxvf pypy3.7-v7.3.5-linux64.tar.bz2 && rm pypy3.7-v7.3.5-linux64.tar.bz2 && mv pypy3.7-v7.3.5-linux64 /usr/lib/pypy3.7 && ln -s /usr/lib/pypy3.7/bin/pypy3 /usr/bin/pypy3  && \
-    wget -O pypy2.7-v7.3.5-linux64.tar.bz2 https://downloads.python.org/pypy/pypy2.7-v7.3.5-linux64.tar.bz2 && tar -jxvf pypy2.7-v7.3.5-linux64.tar.bz2 && rm pypy2.7-v7.3.5-linux64.tar.bz2 && mv pypy2.7-v7.3.5-linux64 /usr/lib/pypy2.7 && ln -s /usr/lib/pypy2.7/bin/pypy /usr/bin/pypy  && \
     phpJitOption='opcache.enable=1\nopcache.enable_cli=1\nopcache.jit=1205\nopcache.jit_buffer_size=64M' && \
     echo $phpJitOption > /etc/php/8.0/cli/conf.d/10-opcache-jit.ini && \
     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \

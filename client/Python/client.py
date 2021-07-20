@@ -4,7 +4,7 @@ import json
 import requests
 
 from client.Python.languages import c_lang_config, cpp_lang_config, java_lang_config, c_lang_spj_config, \
-    c_lang_spj_compile, py2_lang_config, py3_lang_config, pypy2_lang_config, pypy3_lang_config, php_lang_config, js_lang_config, go_lang_config
+    c_lang_spj_compile, py2_lang_config, py3_lang_config, php_lang_config, js_lang_config, go_lang_config
 
 
 class JudgeServerClientError(Exception):
@@ -169,16 +169,6 @@ func main() {
 
     print("py3_judge")
     print(client.judge(src=py3_src, language_config=py3_lang_config,
-                       max_cpu_time=1000, max_memory=128 * 1024 * 1024,
-                       test_case_id="normal", output=True), "\n\n")
-
-    print("pypy2_judge")
-    print(client.judge(src=py2_src, language_config=pypy2_lang_config,
-                       max_cpu_time=1000, max_memory=128 * 1024 * 1024,
-                       test_case_id="normal", output=True), "\n\n")
-
-    print("pypy3_judge")
-    print(client.judge(src=py3_src, language_config=pypy3_lang_config,
                        max_cpu_time=1000, max_memory=128 * 1024 * 1024,
                        test_case_id="normal", output=True), "\n\n")
 
