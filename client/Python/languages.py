@@ -69,6 +69,24 @@ java_lang_config = {
     }
 }
 
+csharp_lang_config = {
+    "name": "csharp",
+    "compile": {
+        "src_name": "Main.cs",
+        "exe_name": "Main",
+        "max_cpu_time": 3000,
+        "max_real_time": 5000,
+        "max_memory": -1,
+        "compile_command": "/usr/bin/mcs -out:{exe_path} {src_path}"
+    },
+    "run": {
+        "command": "/usr/bin/mono {exe_path}",
+        "seccomp_rule": None,
+        "env": default_env,
+        "memory_limit_check_only": 1
+    }
+}
+
 
 py2_lang_config = {
     "compile": {

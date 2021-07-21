@@ -4,7 +4,7 @@ import json
 import requests
 
 from client.Python.languages import c_lang_config, cpp_lang_config, java_lang_config, c_lang_spj_config, \
-    c_lang_spj_compile, py2_lang_config, py3_lang_config, php_lang_config, js_lang_config, go_lang_config
+    c_lang_spj_compile, py2_lang_config, py3_lang_config, csharp_lang_config, js_lang_config, go_lang_config
 
 
 class JudgeServerClientError(Exception):
@@ -107,9 +107,20 @@ print int(s1[0]) + int(s1[1])"""
 s1 = s.split(" ")
 print(int(s1[0]) + int(s1[1]))"""
 
-    php_src = """<?php
-fscanf(STDIN, "%d %d", $a, $b);
-print($a + $b);"""
+    csharp_src = """
+    using System;
+    public class HelloWorld
+    {
+    public static void Main(string[] args)
+    {
+        var numbers = Console.ReadLine();
+        var numberList = numbers.Split(' ');
+        var number1 = Convert.ToInt32(numberList[0]);
+        var number2 = Convert.ToInt32(numberList[1]);
+        Console.WriteLine(number1 + number2);
+    }
+}
+    """
 
     js_src = """const readline = require('readline');
 const rl = readline.createInterface({ input: process.stdin });
@@ -154,6 +165,11 @@ func main() {
                        max_cpu_time=1000, max_memory=256 * 1024 * 1024,
                        test_case_id="normal"), "\n\n")
 
+    print("csharp_judge")
+    print(client.judge(src=csharp_src, language_config=csharp_lang_config,
+                       max_cpu_time=1000, max_memory=256 * 1024 * 1024,
+                       test_case_id="normal"), "\n\n")
+
     print("c_spj_judge")
     print(client.judge(src=c_src, language_config=c_lang_config,
                        max_cpu_time=1000, max_memory=1024 * 1024 * 128,
@@ -169,11 +185,6 @@ func main() {
 
     print("py3_judge")
     print(client.judge(src=py3_src, language_config=py3_lang_config,
-                       max_cpu_time=1000, max_memory=128 * 1024 * 1024,
-                       test_case_id="normal", output=True), "\n\n")
-
-    print("php_judge")
-    print(client.judge(src=php_src, language_config=php_lang_config,
                        max_cpu_time=1000, max_memory=128 * 1024 * 1024,
                        test_case_id="normal", output=True), "\n\n")
 
