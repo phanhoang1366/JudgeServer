@@ -8,7 +8,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     rm /usr/bin/gcc /usr/bin/g++ && ln -s /usr/bin/gcc-9 /usr/bin/gcc && ln -s /usr/bin/g++-9 /usr/bin/g++ && \
     add-apt-repository ppa:openjdk-r/ppa && add-apt-repository ppa:longsleep/golang-backports  && \
     curl -fsSL https://deb.nodesource.com/setup_14.x | bash - && \
-    apt-get update && apt-get install -y golang-go openjdk-8-jdk nodejs mono-complete && \
+    apt-get update && apt-get install -y golang-go openjdk-8-jdk nodejs mono-complete fpc && \
     ln -sf /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata && \
     pip3 install -I --no-cache-dir psutil gunicorn flask requests idna && \

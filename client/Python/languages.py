@@ -88,6 +88,32 @@ csharp_lang_config = {
 }
 
 
+fpc_lang_config = {
+    "template": """//PREPEND BEGIN
+//PREPEND END
+
+//TEMPLATE BEGIN
+//TEMPLATE END
+
+//APPEND BEGIN
+//APPEND END""",
+    "compile": {
+        "src_name": "Main.pas",
+        "exe_name": "Main",
+        "max_cpu_time": 5000,
+        "max_real_time": 10000,
+        "max_memory": -1,
+        "compile_command": "/usr/bin/fpc -o {exe_path} {src_path}"
+    },
+    "run": {
+        "command": "{exe_path}",
+        "seccomp_rule": None,
+        "env": default_env,
+        "memory_limit_check_only": 1
+    }
+}
+
+
 py2_lang_config = {
     "compile": {
         "src_name": "solution.py",

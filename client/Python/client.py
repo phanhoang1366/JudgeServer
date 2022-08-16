@@ -4,7 +4,7 @@ import json
 import requests
 
 from client.Python.languages import c_lang_config, cpp_lang_config, java_lang_config, c_lang_spj_config, \
-    c_lang_spj_compile, py2_lang_config, py3_lang_config, csharp_lang_config, js_lang_config, go_lang_config
+    c_lang_spj_compile, py2_lang_config, py3_lang_config, csharp_lang_config, fpc_lang_config, js_lang_config, go_lang_config
 
 
 class JudgeServerClientError(Exception):
@@ -121,6 +121,14 @@ print(int(s1[0]) + int(s1[1]))"""
     }
 }
     """
+    
+    fpc_src = """
+    var a, b: integer;
+    begin
+        readln(a, b);
+        writeln(a + b);
+    end.
+    """
 
     js_src = """const readline = require('readline');
 const rl = readline.createInterface({ input: process.stdin });
@@ -167,6 +175,11 @@ func main() {
 
     print("csharp_judge")
     print(client.judge(src=csharp_src, language_config=csharp_lang_config,
+                       max_cpu_time=1000, max_memory=256 * 1024 * 1024,
+                       test_case_id="normal"), "\n\n")
+                       
+    print("fpc_judge")
+    print(client.judge(src=fpc_src, language_config=fpc_lang_config,
                        max_cpu_time=1000, max_memory=256 * 1024 * 1024,
                        test_case_id="normal"), "\n\n")
 
