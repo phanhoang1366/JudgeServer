@@ -2,7 +2,7 @@ FROM debian:bullseye-slim
 
 COPY build/java_policy /etc
 RUN export DEBIAN_FRONTEND=noninteractive && \
-    buildDeps='git libtool cmake python-dev python3-pip python-pip libseccomp-dev wget curl' && \
+    buildDeps='git libtool cmake python-dev python3-pip libseccomp-dev wget curl' && \
     apt-get update && apt-get install -y gnupg ca-certificates tzdata python python3 python-pkg-resources python3-pkg-resources $buildDeps && \
     apt-get install -y gcc-9 g++-9 && \
     curl -fsSL https://deb.nodesource.com/setup_14.x | bash - && \
