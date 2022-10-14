@@ -102,8 +102,8 @@ fpc_lang_config = {
         "exe_name": "Main",
         "max_cpu_time": 5000,
         "max_real_time": 10000,
-        "max_memory": -1,
-        "compile_command": "/usr/bin/fpc -OG {src_path}"
+        "max_memory": 256 * 1024 * 1024,
+        "compile_command": "/usr/bin/fpc -O2 {src_path} -o{exe_path}"
     },
     "run": {
         "command": "{exe_path}",
