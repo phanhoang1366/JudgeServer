@@ -13,6 +13,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     dpkg-reconfigure -f noninteractive tzdata && \
     pip3 install -I --no-cache-dir psutil gunicorn flask requests idna && \
     cd /tmp && git clone -b newnew  --depth 1 https://github.com/luyencode/Judger.git && cd Judger && \
+    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 10 && \
+    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 10 && \
     mkdir build && cd build && cmake .. && make && make install && cd ../bindings/Python && python3 setup.py install && \
     apt-get purge -y --auto-remove $buildDeps && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
