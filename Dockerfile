@@ -13,7 +13,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     dpkg-reconfigure -f noninteractive tzdata && \
     pip3 install -I --no-cache-dir psutil gunicorn flask requests idna && \
     cd /tmp && git clone -b newnew  --depth 1 https://github.com/QingdaoU/Judger.git && cd Judger && \
-    wget https://raw.githubusercontent.com/phanhoang1366/JudgeServer/bullseye-slim/0001-patch.patch && git am 0001-patch.patch && \
+    wget https://raw.githubusercontent.com/phanhoang1366/JudgeServer/bullseye-slim/0001-patch.patch && \
+    git config  user.email "johndoe@example.com" && git config user.name "John Doe" && git am 0001-patch.patch && \
     update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 10 && \
     update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 10 && \
     mkdir build && cd build && cmake .. && make && make install && cd ../bindings/Python && python3 setup.py install && \
