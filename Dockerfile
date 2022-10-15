@@ -12,12 +12,12 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     ln -sf /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata && \
     pip3 install -I --no-cache-dir psutil gunicorn flask requests idna && \
-    cd /tmp && git clone -b newnew  --depth 1 https://github.com/luyencode/Judger.git && cd Judger && \
+    cd /tmp && git clone -b newnew  --depth 1 https://github.com/QingdaoU/Judger.git && cd Judger && \
     update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 10 && \
     update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 10 && \
     mkdir build && cd build && cmake .. && make && make install && cd ../bindings/Python && python3 setup.py install && \
     apt-get purge -y --auto-remove $buildDeps && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/Judger/ \
     mkdir -p /code && \
     useradd -u 12001 compiler && useradd -u 12002 code && useradd -u 12003 spj && usermod -a -G code spj
 HEALTHCHECK --interval=5s --retries=3 CMD python3 /code/service.py
