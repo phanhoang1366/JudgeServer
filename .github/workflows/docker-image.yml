@@ -2,9 +2,9 @@ name: Test the Docker image
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "bullseye-slim" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "bullseye-slim" ]
 
 jobs:
 
