@@ -133,7 +133,7 @@ py2_lang_config = {
 py3_lang_config = {
     "compile": {
         "src_name": "solution.py",
-        "exe_name": "__pycache__/solution.cpython-36.pyc",
+        "exe_name": "__pycache__/solution.cpython-39.pyc",
         "max_cpu_time": 3000,
         "max_real_time": 5000,
         "max_memory": 128 * 1024 * 1024,
