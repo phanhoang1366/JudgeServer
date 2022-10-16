@@ -19,7 +19,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 10 && \
     mkdir build && cd build && cmake .. && make && make install && cd ../bindings/Python && python3 setup.py install && \
     apt-get purge -y --auto-remove $buildDeps && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/Judger/ && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* && \
     mkdir -p /code && \
     useradd -u 12001 compiler && useradd -u 12002 code && useradd -u 12003 spj && usermod -a -G code spj
 HEALTHCHECK --interval=5s --retries=3 CMD python3 /code/service.py
