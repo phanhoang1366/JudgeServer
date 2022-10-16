@@ -17,8 +17,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     git config  user.email "johndoe@example.com" && git config user.name "John Doe" && git am 0001-patch.patch && \
     update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 10 && \
     update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 10 && \
-    mkdir build && cd build && cmake .. && make && make install && cd ../bindings/Python && python3 setup.py install && \
-    apt-get purge -y --auto-remove $buildDeps && \
+    mkdir build && cd build && cmake .. && make && make install && cd ../bindings/Python && python3 setup.py install --user && \
+    cd && python3 -c "import _judger" && \
+    apt-get purge -y --auto-remove $buildDeps gcc-10 g++-10 && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
     mkdir -p /code && \
     useradd -u 12001 compiler && useradd -u 12002 code && useradd -u 12003 spj && usermod -a -G code spj
