@@ -1,7 +1,7 @@
 version: "3"
 services:
     judge_server:
-        image: phanhoang1366/judge-server
+        image: phanhoang1366/judge-server:bullseye-slim
         read_only: true
         cap_drop:
             - SETPCAP
