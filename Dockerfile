@@ -6,9 +6,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && apt-get install -y gnupg ca-certificates tzdata python python3 python-pkg-resources python3-pkg-resources $buildDeps && \
     apt-get install -y gcc-9 g++-9 && \
     curl -fsSL https://deb.nodesource.com/setup_14.x | bash - && \
-    apt-get install -y golang-1.15 openjdk-11-jdk nodejs mono-complete --no-install-recommends && \
-    wget https://sourceforge.net/projects/lazarus/files/Lazarus%20Linux%20amd64%20DEB/Lazarus%202.2.2/fpc-laz_3.2.2-210709_amd64.deb && \
-    apt install -y ./fpc-laz_3.2.2-210709_amd64.deb && rm -rf fpc-laz_3.2.2-210709_amd64.deb && \
+    apt-get install -y golang-1.15 openjdk-11-jdk nodejs mono-mcs fp-compiler fp-units-base fp-units-fcl fp-units-misc fp-units-math fp-units-rtl --no-install-recommends && \
+#    wget https://sourceforge.net/projects/lazarus/files/Lazarus%20Linux%20amd64%20DEB/Lazarus%202.2.2/fpc-laz_3.2.2-210709_amd64.deb && \
+#    apt install -y ./fpc-laz_3.2.2-210709_amd64.deb && rm -rf fpc-laz_3.2.2-210709_amd64.deb && \
     ln -sf /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata && \
     pip3 install -I --no-cache-dir psutil gunicorn flask requests idna && \
