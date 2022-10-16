@@ -14,7 +14,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     pip3 install -I --no-cache-dir psutil gunicorn flask requests idna && \
     cd /tmp && git clone -b newnew  --depth 1 https://github.com/luyencode/Judger.git && cd Judger && \
     mkdir build && cd build && cmake .. && make && make install && cd ../bindings/Python && python3 setup.py install --user && \
-    cd && python3 -c "import _judger" && \
+    python3 -c "import _judger" && \
     apt-get purge -y --auto-remove $buildDeps gcc-10 g++-10 && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
     mkdir -p /code && \
